@@ -1,32 +1,69 @@
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-const MapContainer = (props) => {
-    function onMarkerClick(e){
-        console.log(e)
-    }
-    function onInfoWindowClose(){
+import { Component } from 'react';
 
+
+class MainMap extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        markers: [
+          {
+            title: "The marker`s title will appear as a tooltip.",
+            position: { 
+                
+                    lat: props.latitudemain,
+                    lng: props.longitudemain
+             }
+          }
+        ]
+      };
+      this.onClick = this.onClick.bind(this);
     }
-    const {google}=props
-    return ( 
-        <div className="Map">
-            <Map
-            google={google}
-            style={{width:"100%",height:"100%"}}
-            zoom= {10}
-            initialCenter={
-                {
-                    lat: 28.38,
-                    lng: 77.12
-                }
-            }>
-                <Marker onClick={(e)=>onMarkerClick(e)}
-                name={'Current location'} />
- 
-            </Map>
+  
+    onClick(t, map, coord) {
+      const { latLng } = coord;
+      const lat = latLng.lat();
+      const lng = latLng.lng();
+      this.props.setLatitude(lat);
+      this.props.setLongitude(lng);
+  
+      this.setState(previousState => {
+        return {
+          markers: [
+            {
+              title: "",
+              name: "",
+              position: { lat, lng }
+            }
+          ]
+        };
+      });
+    }
+  
+    render() {
+      return (
+        <div>
+          <Map
+            google={this.props.google}
+            style={{ width: "80%", margin: "auto" }}
+            className={"map"}
+            zoom={10}
+            onClick={this.onClick}
+          >
+            {this.state.markers.map((marker, index) => (
+              <Marker
+                key={index}
+                title={marker.title}
+                name={marker.name}
+                position={marker.position}
+              />
+            ))}
+          </Map>
         </div>
-     );
-}
- 
-export default GoogleApiWrapper({
-    apiKey:"AIzaSyATchiD-1bqeXh1pAguo9qJuYnpeyk_nIE"
-})(MapContainer);
+      );
+    }
+  }
+  
+  export const MapContainer = GoogleApiWrapper({
+    apiKey: ("AIzaSyATchiD-1bqeXh1pAguo9qJuYnpeyk_nIE")
+  })(MainMap);
