@@ -5,9 +5,10 @@ import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import useFetch from './HelperFunctions/useFetch';
 import {BrowserRouter as Router,Route,Link,Routes} from 'react-router-dom';
-import Chatbot from './components/Chatbot/Chatbot';
 import Inspection from './components/Inspection/Inspection';
 import Login from './components/Login/Login';
+import Sentiment from './components/Sentiment/Sentimetn';
+import Landanalysis from './components/Landanalysis/Landanalysis';
 
 
 function App() {
@@ -25,8 +26,11 @@ function App() {
               <Route exact path='inspection' 
                 element={<Inspection></Inspection>}
               />
-              <Route exact path='chatbot' 
-                element={<Chatbot></Chatbot>}
+              <Route exact path='landanalysis'
+                element={<Landanalysis></Landanalysis>}
+              />
+              <Route exact path='sentiment' 
+                element={<Sentiment></Sentiment>}
               />
               <Route exact path='login' 
                 element={<Login></Login>}

@@ -1,19 +1,18 @@
-import useFetch from "../../HelperFunctions/useFetch";
+import React from "react";
 
-const Output = ({latitude,longitude}) => {
-    const url1="/predict/"+longitude+"/"+latitude;
-    const res=useFetch(url1);
-    const data=res.data;
-    const error=res.error;
-    const pending=res.pending;
-
+const Output = (props) => {
+    const data=props.data
+    console.log(data)
+    
+    
     return ( 
-        <div className="Output">
-            {
-                error ||
-                pending ||
-                console.log(data.value)
-            }
+        <div>
+            <button onClick={props.handleBack}>Clear</button>
+            {data && props.selectedImages.map((element,index)=>{return(
+                <div key={element.index}>
+                    <img src={element.url} height={100} />
+                    <p>{data[element.index]}</p>
+                </div>)})}
         </div>
      );
 }

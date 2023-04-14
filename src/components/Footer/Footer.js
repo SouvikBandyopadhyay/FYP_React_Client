@@ -1,4 +1,5 @@
 import credits from "./credits.json"
+import React from 'react'
 
 function Footer(){
 

@@ -1,5 +1,7 @@
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import { Component } from 'react';
+import React from 'react'
+import { useEffect } from 'react';
 
 
 class MainMap extends Component {
@@ -11,8 +13,8 @@ class MainMap extends Component {
             title: "The marker`s title will appear as a tooltip.",
             position: { 
                 
-                    lat: props.latitudemain,
-                    lng: props.longitudemain
+                    lat: props.latitude,
+                    lng: props.longitude
              }
           }
         ]
@@ -26,7 +28,6 @@ class MainMap extends Component {
       const lng = latLng.lng();
       this.props.setLatitude(lat);
       this.props.setLongitude(lng);
-  
       this.setState(previousState => {
         return {
           markers: [
@@ -40,6 +41,8 @@ class MainMap extends Component {
       });
     }
   
+    
+
     render() {
       return (
         <div>
