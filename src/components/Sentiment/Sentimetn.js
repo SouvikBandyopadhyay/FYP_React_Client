@@ -66,6 +66,7 @@ const Sentiment = () => {
                     <input disabled={pending} type="text"  value={keyword} onChange={(e)=>setKeyword(e.target.value)}/>
                 </div>
                 <div>
+                    <p>Current val: {noOfTweets}</p>
                     <p>{minNoOfTweets}</p>
                     <input disabled={pending} type="range" max={maxNoOfTweets} min={minNoOfTweets}  value={noOfTweets} onChange={(e)=>setNoOfTweets(e.target.value)}/>
                     <p>{maxNoOfTweets}</p>

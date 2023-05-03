@@ -14,7 +14,8 @@ const Landanalysis = () => {
     const [submit,setSubmit]=useState(false)
     const [latitudemain,setLatitudemain]=useState("")
     const [longitudemain,setLongitudemain]=useState("")
-    const [date,setdate]=useState()
+    const [date1,setdate1]=useState()    
+    const [date2,setdate2]=useState()
     const [area,setarea]=useState(5)
 
     function submitinput(e){
@@ -46,7 +47,7 @@ const Landanalysis = () => {
                 "Accept":"application/json",
                 "Content-type":"application/json"
             },
-            body:JSON.stringify({"area":area,"date":date,"lat":latitudemain,"long":longitudemain})
+            body:JSON.stringify({"date1":date1,"date2": date2,"lat":latitudemain,"long":longitudemain})
         })
             .then(response => {
                 if(!response.ok){
@@ -82,12 +83,12 @@ const Landanalysis = () => {
             <div className="Landanalysis-body">
             {toggle==0 && <div className="Landanalysis-input">
             <div>
-                <p>Date: </p>
-                <input required="true" type="date" onChange={(e)=>{setdate(e.target.value)}} value={date}/>
+                <p>Start Date: </p>
+                <input required="true" type="date" onChange={(e)=>{setdate1(e.target.value)}} value={date1}/>
             </div>
             <div>
-                <p>Sqr. Km. Area: </p>
-                <input required="true" type="number" onChange={(e)=>{setarea(e.target.value)}} value={area}/>
+                <p>End Date: </p>
+                <input required="true" type="date" onChange={(e)=>{setdate2(e.target.value)}} value={date2}/>
             </div>
                 
                 
