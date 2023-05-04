@@ -3,6 +3,7 @@ import { Component } from 'react';
 import React from 'react'
 import { useEffect } from 'react';
 
+import { Goole_Map_Api_Key } from '../../config';
 
 class MainMap extends Component {
     constructor(props) {
@@ -68,5 +69,5 @@ class MainMap extends Component {
   }
   
   export const MapContainer = GoogleApiWrapper({
-    apiKey: ("AIzaSyATchiD-1bqeXh1pAguo9qJuYnpeyk_nIE")
+    apiKey: (Goole_Map_Api_Key)
   })(MainMap);

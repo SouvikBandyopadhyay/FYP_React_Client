@@ -11,7 +11,12 @@ const Output = (props) => {
             {data && props.selectedImages.map((element,index)=>{return(
                 <div key={element.index}>
                     <img src={element.url} height={100} />
-                    <p>{data[element.index]}</p>
+                    {(data[element.index]==1) && <p>
+                        Damaged
+                        </p>}
+                    {(data[element.index]==0) && <p>
+                        Not Damaged
+                        </p>}
                 </div>)})}
         </div>
      );
