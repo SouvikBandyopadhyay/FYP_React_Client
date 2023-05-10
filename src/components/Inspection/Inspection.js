@@ -34,7 +34,7 @@ const Inspection = () => {
     
     function apicaller(){
 
-        
+         
         const formData=new FormData()
         for(let i=0; i<selectedImages.length;i++){
             formData.append(selectedImages[i].index,selectedImages[i].file)

@@ -82,6 +82,9 @@ const Sentiment = () => {
                     <p>Posetive:{data.pos}</p>
                 </div>
                 <div>
+                    <p>Neutral:{data.nut}</p>
+                </div>
+                <div>
                     <p>Negetive:{data.neg}</p>
                 </div>
                 <div>

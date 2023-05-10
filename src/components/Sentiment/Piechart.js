@@ -9,6 +9,7 @@ const Piechart = ({data}) => {
 console.log(data)
 const piedata=[
   {name:"pos",value:data.pos,color:"green"},
+  {name:"nut",value:data.nut,color:"gray"},
   {name:"neg",value:data.neg,color:"red"}
 ]
   
