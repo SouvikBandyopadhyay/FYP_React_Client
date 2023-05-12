@@ -5,11 +5,11 @@ function Navbar(){
     return (
         <div className="Navbar">
             <ul className="flex-row">
-                <li><Link to={"/"}>Home</Link></li>
-                <li><Link to={"landanalysis"}>Land Analysis</Link></li>
-                <li><Link to={"inspection"}>Damage Inspection</Link></li>
-                <li><Link to={"sentiment"}>Sentiment Analysis</Link></li>
-                <li><Link to={"login"}>Login</Link></li>
+                <li><a href={"/"}>Home</a></li>
+                <li><a href={"landanalysis"}>Land Analysis</a></li>
+                <li><a href={"inspection"}>Damage Inspection</a></li>
+                <li><a href={"sentiment"}>Sentiment Analysis</a></li>
+                <li><a href={"login"}>Login</a></li>
             </ul>
         </div>
     )
