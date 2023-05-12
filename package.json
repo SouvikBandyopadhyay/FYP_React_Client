@@ -12,11 +12,14 @@
     "recharts": "^2.6.2",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://souvikbandyopadhyay.github.io/FYP_React_Client",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build --legacy-peer-deps",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
