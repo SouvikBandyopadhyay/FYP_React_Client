@@ -22,11 +22,13 @@ function App() {
           <Navbar></Navbar>
           
             <Switch>
+              <Route exact path='' ><Home></Home></Route>
               <Route exact path='/' ><Home></Home></Route>
-              <Route path='/inspection'><Inspection></Inspection></Route>
-              <Route path='/landanalysis'><Landanalysis></Landanalysis></Route>
-              <Route path='/sentiment'><Sentiment></Sentiment></Route>
-              <Route path='/login' ><Login></Login></Route>
+              <Route exact path='/FYP_React_Client' ><Home></Home></Route>
+              <Route path='/FYP_React_Client/inspection'><Inspection></Inspection></Route>
+              <Route path='/FYP_React_Client/landanalysis'><Landanalysis></Landanalysis></Route>
+              <Route path='/FYP_React_Client/sentiment'><Sentiment></Sentiment></Route>
+              <Route path='/FYP_React_Client/login' ><Login></Login></Route>
               
             </Switch>
           
