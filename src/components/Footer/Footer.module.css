@@ -1,0 +1,8 @@
+.Footer{
+    color: white;
+    background-color: rgb(15, 15, 77);
+    padding-top: 0.5cm;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

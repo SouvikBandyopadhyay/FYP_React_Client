@@ -9,13 +9,13 @@ const Landanalysis = () => {
     const [toggle,setToggle]=useState(0)
 
 
-    const [longitude,setLongitude]=useState("")
-    const [latitude,setLatitude]=useState("")
+    const [longitude,setLongitude]=useState(0)
+    const [latitude,setLatitude]=useState(0)
     const [submit,setSubmit]=useState(false)
-    const [latitudemain,setLatitudemain]=useState("")
-    const [longitudemain,setLongitudemain]=useState("")
-    const [date1,setdate1]=useState()    
-    const [date2,setdate2]=useState()
+    const [latitudemain,setLatitudemain]=useState(0)
+    const [longitudemain,setLongitudemain]=useState(0)
+    const [date1,setdate1]=useState("2018-07-02")    
+    const [date2,setdate2]=useState("2018-07-02")
     const [area,setarea]=useState(5)
 
     function submitinput(e){
@@ -25,6 +25,7 @@ const Landanalysis = () => {
         setLongitudemain(longitude);
         apicaller();
         setToggle(1)
+        
     }
 
     const handleBack=()=>{
@@ -39,6 +40,8 @@ const Landanalysis = () => {
         
     const controller=new AbortController();
     function apicaller(){
+        var body_data=JSON.stringify({"date1":date1,"date2": date2,"lat":latitude,"long":longitude})
+        console.log(body_data)
         setPending(true)
         fetch("/landanalysis",
         {signal:controller.signal,
@@ -47,7 +50,7 @@ const Landanalysis = () => {
                 "Accept":"application/json",
                 "Content-type":"application/json"
             },
-            body:JSON.stringify({"date1":date1,"date2": date2,"lat":latitudemain,"long":longitudemain})
+            body:body_data
         })
             .then(response => {
                 if(!response.ok){
@@ -108,7 +111,7 @@ const Landanalysis = () => {
                 </div>
                 </div>}
                 {toggle==1 && <div className="Landanalysis-output">
-                    <Output value={latitude} handleBack={handleBack}></Output>
+                    <Output data={data} handleBack={handleBack}></Output>
                 </div>}
             </div>
         </div>

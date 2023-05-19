@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Piechart from "./Piechart";
 import React from 'react'
+import senti from "./Sentimetn.module.css"
 
 const Sentiment = () => {
     const maxNoOfTweets=500
@@ -62,20 +63,22 @@ const Sentiment = () => {
                 <h1>Sentiment Analysis</h1>
             </div>
             <div>
-                <div>
-                    <input disabled={pending} type="text"  value={keyword} onChange={(e)=>setKeyword(e.target.value)}/>
+                <div className={senti.search}>
+                    <input disabled={pending} type="text" placeholder="  Search here" value={keyword} onChange={(e)=>setKeyword(e.target.value)}/>
                 </div>
                 <div>
-                    <p>Current val: {noOfTweets}</p>
+                    <p><br></br>Current val: {noOfTweets}</p>
                     <p>{minNoOfTweets}</p>
                     <input disabled={pending} type="range" max={maxNoOfTweets} min={minNoOfTweets}  value={noOfTweets} onChange={(e)=>setNoOfTweets(e.target.value)}/>
                     <p>{maxNoOfTweets}</p>
                 </div>
-                <div>
+                <div className={senti.btn}>
                     <button disabled={pending} onClick={(e)=>analyse(e)}>
                         Analyse
                     </button>
+                   
                 </div>
+                <br></br>
             </div>
             {(pending===false && data!=false) && <div>
                 <div>

@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 
 import { Goole_Map_Api_Key } from '../../config';
 
+import styles from "./Landanalysis.module.css"
+
 class MainMap extends Component {
     constructor(props) {
       super(props);
@@ -20,6 +22,10 @@ class MainMap extends Component {
           }
         ]
       };
+      // this.onClick = this.onClick.bind(this);
+    }
+    
+    componentDidMount(){
       this.onClick = this.onClick.bind(this);
     }
   
@@ -49,7 +55,7 @@ class MainMap extends Component {
         <div>
           <Map
             google={this.props.google}
-            style={{ width: "80%", margin: "auto" }}
+            style={{ width: "100%", height:"50%", marginTop: "3rem" }}
             className={"map"}
             zoom={10}
             onClick={this.onClick}

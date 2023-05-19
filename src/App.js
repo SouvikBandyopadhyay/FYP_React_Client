@@ -16,20 +16,23 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <div className="basic-app-body space-between flex-col">
-          
-          <Navbar></Navbar>
-            <Switch>
-              <Route exact path='/' ><Home></Home></Route>
-              <Route  path='/inspection' ><Inspection></Inspection></Route>
-              <Route  path='/landanalysis'><Landanalysis></Landanalysis></Route>
-              <Route  path='/sentiment' ><Sentiment></Sentiment></Route>
-              <Route  path='/login' ><Login></Login></Route>
-            </Switch>
-          <Footer></Footer>
-        </div>
+      
+      <div className="bg">
+          <BrowserRouter>
+            <div className="basic-app-body space-between flex-col">
+              
+              <Navbar></Navbar>
+              <Switch>
+                <Route exact path='/' ><Home></Home></Route>
+                <Route  path='/inspection' ><Inspection></Inspection></Route>
+                <Route  path='/landanalysis'><Landanalysis></Landanalysis></Route>
+                <Route  path='/sentiment' ><Sentiment></Sentiment></Route>
+                <Route  path='/login' ><Login></Login></Route>
+              </Switch>
+              <Footer></Footer>
+            </div>
           </BrowserRouter>
+      </div>
     </div>
   );
 }
